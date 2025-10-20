@@ -19,8 +19,18 @@
     body { margin: 0; font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { display: grid; grid-template-columns: 300px 1fr; gap: 24px; padding: 28px; max-width: 1300px; margin: auto; }
-    @media (max-width: 900px){.wrap{grid-template-columns:1fr;}}
+    .wrap { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 24px; padding: 28px; max-width: 1300px; margin: auto; }
+    @media (max-width: 900px){
+      .wrap { display: flex; flex-direction: column; gap: 20px; padding: 20px; }
+      header { order: 1; }
+      main { order: 2; }
+      nav { position: static; max-height: none; overflow: visible; order: 3; }
+    }
+    @media (max-width: 600px){
+      body { font-size: 15px; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 20px; }
+    }
     header { grid-column: 1 / -1; }
     h1 { font-size: 34px; margin: 0 0 8px; font-weight: 800; }
     .subtitle { color: var(--muted); margin: 0 0 10px; }
